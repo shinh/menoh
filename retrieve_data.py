@@ -1,3 +1,4 @@
+import os
 import sys
 
 def wget( address, target ):
@@ -10,6 +11,8 @@ def wget( address, target ):
         import urllib.request
         urllib.request.urlretrieve(address,  target)
 
+if not os.path.exists('data'):
+    os.mkdir('data')
 wget('https://www.dropbox.com/s/bjfn9kehukpbmcm/VGG16.onnx?dl=1', './data/VGG16.onnx')
 wget('https://raw.githubusercontent.com/HoldenCaulfieldRye/caffe/master/data/ilsvrc12/synset_words.txt', './data/synset_words.txt')
 wget('https://upload.wikimedia.org/wikipedia/commons/5/54/Light_sussex_hen.jpg', './data/Light_sussex_hen.jpg')
